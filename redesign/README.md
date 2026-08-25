@@ -30,8 +30,17 @@ Model: `gemini-3.1-flash-image-preview` (the script's default). `edit.py` expose
 no aspect-ratio or `imageSize` flags — an edit inherits the framing of the source
 image, so crop/rotate the source first if you want a different ratio.
 
-Note: the source file is stored rotated 90° (portrait bytes, landscape scene).
-Each prompt tells the model to render the room upright in landscape orientation.
+Note on orientation: the source JPEG carries EXIF orientation tag 6, so its raw
+pixels are 4032x3024 landscape while the intended display is 3024x4032 portrait.
+Viewers that ignore EXIF show the room lying on its side. Normalise it before
+sending it to the API, otherwise the model renders a sideways room:
+
+```python
+from PIL import Image, ImageOps
+ImageOps.exif_transpose(Image.open(SRC)).save("source-upright.jpg", quality=95)
+```
+
+The three prompts are written for that upright portrait framing.
 
 ## What varies between the three
 

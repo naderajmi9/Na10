@@ -1,4 +1,4 @@
-Redesign the interior of this exact room while preserving its architecture. Render the scene upright in landscape orientation, looking down the long axis of the room toward the tall dark-framed windows at the far end, from the same standing eye-level camera position as the source photograph.
+Redesign the interior of this exact room while preserving its architecture. Render the scene upright in vertical portrait orientation, looking down the long axis of the room toward the tall dark-framed windows at the far end, from the same standing eye-level camera position as the source photograph.
 
 KEEP UNCHANGED: the room's proportions and length, the white coffered ceiling with its ornate circular plaster rose and recessed spotlights, the tall recessed-panel wall moldings, the window openings and their dark slim frames, the polished cream marble floor with its soft grey veining, and the low majlis floor-seating layout running continuously along both long walls.
 
