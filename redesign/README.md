@@ -1,4 +1,4 @@
-# Majlis Redesign — 6 directions
+# Majlis Redesign — 10 renders
 
 Source photo: the existing majlis / formal living room (long rectangular room,
 polished cream marble floor, white coffered ceiling with an ornate ceiling rose
@@ -11,7 +11,16 @@ polished marble floor intact, and changes only furniture, textiles, wall finish
 and lighting — so all six renders compare directly against the original photo.
 
 v1-v3 are three palettes of one direction (**luxury classic**). v4-v6 are three
-separate directions.
+separate directions, all from the long axial view. v7-v9 are rendered from the
+window-wall corner view, and v10 brings the strongest direction back to the long
+view for comparison.
+
+**The furniture is Damascene marquetry** — carved walnut with eight-point star
+inlay in bone, pale wood and brass, plus inlaid brass plaques on the base rail.
+It is the room's most valuable element and the expensive thing to replace, so
+v7 and v10 keep every frame exactly as built and change only upholstery,
+cushions, rug, drapery and lighting. That is the cheapest route by a wide margin
+and the only one that keeps the room's character.
 
 ## How to run
 
@@ -20,10 +29,11 @@ commands below (each writes a PNG into `~/Documents/nanobanana_generated/`):
 
 ```bash
 export GOOGLE_AI_API_KEY="<your key from https://aistudio.google.com/apikey>"
-SRC=/path/to/majlis-original.jpg
 S=/home/user/Na10/.claude/skills/banana/scripts/edit.py
 
-for v in redesign/v*.txt; do python3 "$S" --image "$SRC" --prompt "$(cat "$v")"; done
+# v1-v6 and v10 use the long axial photo; v7-v9 use the window-wall corner photo
+python3 "$S" --image long-view.jpg   --prompt "$(cat redesign/v1-emerald-gold.txt)"
+python3 "$S" --image corner-view.jpg --prompt "$(cat redesign/v7-keep-marquetry-window-wall.txt)"
 ```
 
 Model: `gemini-3.1-flash-image-preview` (the script's default). `edit.py` exposes
@@ -59,3 +69,17 @@ The three prompts are written for that upright portrait framing.
 | v4 | Warm modern minimal | Oatmeal boucle platform seating, walnut, chalk-plaster panels, opal glass globe cluster, undyed wool rug. Keeps the majlis layout, strips the ornament. |
 | v5 | Contemporary Arabic majlis | Charcoal wool seating with terracotta and ochre cushions, fluted smoked-oak wall paneling with brass reveals, linear brass chandelier, abstracted geometric rug. |
 | v6 | Full modern living room | Floor seating removed entirely: greige sectional, cognac leather swivel chairs, marble oval coffee table, walnut console, olive tree, smoked-glass disc chandelier. |
+
+### Reupholster-only, on the existing marquetry frames
+
+| | View | Notes |
+|---|---|---|
+| v7 | Window wall | Teal silk velvet on the existing inlaid frames, saffron/rose/indigo cushions, antique Persian rug, bone linen curtains on the glazed doors, pierced-brass lanterns. |
+| v10 | Long axial view | Same scheme from the main viewpoint, chandelier and plaster rose intact, clutter cleared. |
+
+### Rebuild options, window-wall view
+
+| | Direction | Notes |
+|---|---|---|
+| v8 | Contemporary | Charcoal wool bench in smoked oak with brass reveal, fluted oak wall, terracotta and ochre cushions. |
+| v9 | Minimal | Oatmeal boucle platform, chalk plaster, undyed wool rug, travertine plinth, olive tree. |
